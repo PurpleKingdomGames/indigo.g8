@@ -17,7 +17,12 @@ object $module_name$ extends IndigoGame[Unit, Unit, Unit, Unit] {
     EventFilters.Permissive
 
   def boot(flags: Map[String, String]): Outcome[BootResult[Unit]] =
-    Outcome(BootResult.noData(GameConfig.default))
+    Outcome(
+      BootResult.noData(
+        GameConfig.default
+          .withViewport($window_start_width$, $window_start_height$)
+      )
+    )
 
   def initialModel(startupData: Unit): Outcome[Unit] =
     Outcome(())
