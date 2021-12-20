@@ -1,6 +1,8 @@
 import scala.sys.process._
 import scala.language.postfixOps
 
+import sbtwelcome._
+
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 Test / scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) }
@@ -37,6 +39,20 @@ lazy val mygame =
     )
     .settings(
       code := { "code ." ! }
+    )
+    .settings(
+      logo := "$game_title$ (v" + version.value.toString + ")",
+      usefulTasks := Seq(
+        UsefulTask("", "runGame", "Run the game (requires Electron)"),
+        UsefulTask("", "buildGame", "Build web version"),
+        UsefulTask("", "runGameFull", "Run the fully optimised game (requires Electron)"),
+        UsefulTask("", "buildGameFull", "Build the fully optimised web version"),
+        UsefulTask("", "code", "Launch VSCode")
+      ),
+      logoColor        := scala.Console.MAGENTA,
+      aliasColor       := scala.Console.BLUE,
+      commandColor     := scala.Console.CYAN,
+      descriptionColor := scala.Console.WHITE
     )
 
 addCommandAlias("buildGame", ";compile;fastOptJS;indigoBuild")
