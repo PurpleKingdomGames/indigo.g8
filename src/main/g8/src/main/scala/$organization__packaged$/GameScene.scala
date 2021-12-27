@@ -23,7 +23,10 @@ object GameScene extends Scene[Unit, Unit, Unit]:
   val subSystems: Set[SubSystem] =
     Set()
 
-  def updateModel(context: FrameContext[Unit], model: Unit): GlobalEvent => Outcome[Unit] =
+  def updateModel(
+      context: FrameContext[Unit],
+      model: Unit
+  ): GlobalEvent => Outcome[Unit] =
     _ => Outcome(model)
 
   def updateViewModel(
@@ -33,7 +36,11 @@ object GameScene extends Scene[Unit, Unit, Unit]:
   ): GlobalEvent => Outcome[Unit] =
     _ => Outcome(viewModel)
 
-  def present(context: FrameContext[Unit], model: Unit, viewModel: Unit): Outcome[SceneUpdateFragment] =
+  def present(
+      context: FrameContext[Unit],
+      model: Unit,
+      viewModel: Unit
+  ): Outcome[SceneUpdateFragment] =
     Outcome(
       SceneUpdateFragment(
         Shape
