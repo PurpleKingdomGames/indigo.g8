@@ -1,5 +1,3 @@
-libraryDependencies += "org.scala-js" %% "scalajs-env-nodejs" % "1.2.1"
-
 addSbtPlugin("org.scala-js"               % "sbt-scalajs"  % "$scala_js_version$")
 addSbtPlugin("io.indigoengine"           %% "sbt-indigo"   % "$indigo_version$")
 addSbtPlugin("io.github.davidgregory084"  % "sbt-tpolecat" % "$sbt_tpolecat_version$")
