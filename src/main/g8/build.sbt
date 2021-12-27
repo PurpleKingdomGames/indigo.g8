@@ -38,7 +38,14 @@ lazy val mygame =
       )
     )
     .settings(
-      code := { "code ." ! }
+      code := {
+        val command = Seq("code", ".")
+        val run = sys.props("os.name").toLowerCase match {
+          case x if x contains "windows" => Seq("cmd", "/C") ++ command
+          case _                         => command
+        }
+        run.!
+      }
     )
     .settings(
       logo := "$game_title$ (v" + version.value.toString + ")",
