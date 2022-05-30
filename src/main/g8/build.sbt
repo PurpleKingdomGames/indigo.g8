@@ -26,11 +26,13 @@ lazy val mygame =
       semanticdbVersion  := scalafixSemanticdb.revision,
     )
     .settings( // Indigo specific settings
-      showCursor          := $show_cursor$,
-      title               := "$game_title$",
-      gameAssetsDirectory := "$game_assets_directory$",
-      windowStartWidth    := $window_start_width$,
-      windowStartHeight   := $window_start_height$,
+      showCursor            := $show_cursor$,
+      title                 := "$game_title$",
+      gameAssetsDirectory   := "$game_assets_directory$",
+      windowStartWidth      := $window_start_width$,
+      windowStartHeight     := $window_start_height$,
+      disableFrameRateLimit := false,
+      electronInstall       := indigoplugin.ElectronInstall.Global,
       libraryDependencies ++= Seq(
         "io.indigoengine" %%% "indigo-json-circe" % "$indigo_version$",
         "io.indigoengine" %%% "indigo"            % "$indigo_version$",
@@ -50,14 +52,14 @@ lazy val mygame =
     .settings(
       logo := "$game_title$ (v" + version.value.toString + ")",
       usefulTasks := Seq(
-        UsefulTask("", "runGame", "Run the game (requires Electron)"),
-        UsefulTask("", "buildGame", "Build web version"),
-        UsefulTask("", "runGameFull", "Run the fully optimised game (requires Electron)"),
-        UsefulTask("", "buildGameFull", "Build the fully optimised web version"),
-        UsefulTask("", "code", "Launch VSCode")
+        UsefulTask("a", "runGame", "Run the game (requires Electron)"),
+        UsefulTask("b", "buildGame", "Build web version"),
+        UsefulTask("c", "runGameFull", "Run the fully optimised game (requires Electron)"),
+        UsefulTask("d", "buildGameFull", "Build the fully optimised web version"),
+        UsefulTask("e", "code", "Launch VSCode")
       ),
       logoColor        := scala.Console.MAGENTA,
-      aliasColor       := scala.Console.BLUE,
+      aliasColor       := scala.Console.YELLOW,
       commandColor     := scala.Console.CYAN,
       descriptionColor := scala.Console.WHITE
     )
