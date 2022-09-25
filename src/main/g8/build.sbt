@@ -32,7 +32,7 @@ lazy val mygame =
       windowStartWidth      := $window_start_width$,
       windowStartHeight     := $window_start_height$,
       disableFrameRateLimit := false,
-      electronInstall       := indigoplugin.ElectronInstall.Global,
+      electronInstall       := indigoplugin.ElectronInstall.Latest,
       libraryDependencies ++= Seq(
         "io.indigoengine" %%% "indigo-json-circe" % "$indigo_version$",
         "io.indigoengine" %%% "indigo"            % "$indigo_version$",
@@ -52,9 +52,9 @@ lazy val mygame =
     .settings(
       logo := "$game_title$ (v" + version.value.toString + ")",
       usefulTasks := Seq(
-        UsefulTask("a", "runGame", "Run the game (requires Electron)"),
+        UsefulTask("a", "runGame", "Run the game"),
         UsefulTask("b", "buildGame", "Build web version"),
-        UsefulTask("c", "runGameFull", "Run the fully optimised game (requires Electron)"),
+        UsefulTask("c", "runGameFull", "Run the fully optimised game"),
         UsefulTask("d", "buildGameFull", "Build the fully optimised web version"),
         UsefulTask("e", "code", "Launch VSCode")
       ),
