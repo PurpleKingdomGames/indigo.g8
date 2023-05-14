@@ -33,6 +33,7 @@ lazy val mygame =
       windowStartHeight     := $window_start_height$,
       disableFrameRateLimit := false,
       electronInstall       := indigoplugin.ElectronInstall.Latest,
+      backgroundColor       := "black",
       libraryDependencies ++= Seq(
         "io.indigoengine" %%% "indigo-json-circe" % "$indigo_version$",
         "io.indigoengine" %%% "indigo"            % "$indigo_version$",
@@ -52,11 +53,11 @@ lazy val mygame =
     .settings(
       logo := "$game_title$ (v" + version.value.toString + ")",
       usefulTasks := Seq(
-        UsefulTask("a", "runGame", "Run the game"),
-        UsefulTask("b", "buildGame", "Build web version"),
-        UsefulTask("c", "runGameFull", "Run the fully optimised game"),
-        UsefulTask("d", "buildGameFull", "Build the fully optimised web version"),
-        UsefulTask("e", "code", "Launch VSCode")
+        UsefulTask("runGame", "Run the game").noAlias,
+        UsefulTask("buildGame", "Build web version").noAlias,
+        UsefulTask("runGameFull", "Run the fully optimised game").noAlias,
+        UsefulTask("buildGameFull", "Build the fully optimised web version").noAlias,
+        UsefulTask("code", "Launch VSCode").noAlias
       ),
       logoColor        := scala.Console.MAGENTA,
       aliasColor       := scala.Console.YELLOW,
