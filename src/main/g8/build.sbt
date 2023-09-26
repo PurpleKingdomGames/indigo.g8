@@ -2,12 +2,24 @@ import scala.sys.process._
 import scala.language.postfixOps
 
 import sbtwelcome._
+import indigoplugin._
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 Test / scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) }
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "$scalafix_organize_imports_version$"
+
+lazy val gameOptions: IndigoOptions =
+  IndigoOptions.defaults
+    .withTitle("$game_title$")
+    .withWindowSize($window_start_width$, $window_start_height$)
+    .withBackgroundColor("black")
+    .withAssetDirectory("assets")
+    .excludeAssets {
+      case p if p.endsWith(os.RelPath.rel / ".gitkeep") => true
+      case _                                            => false
+    }
 
 lazy val mygame =
   (project in file("."))
@@ -26,19 +38,18 @@ lazy val mygame =
       semanticdbVersion  := scalafixSemanticdb.revision,
     )
     .settings( // Indigo specific settings
-      showCursor            := $show_cursor$,
-      title                 := "$game_title$",
-      gameAssetsDirectory   := "$game_assets_directory$",
-      windowStartWidth      := $window_start_width$,
-      windowStartHeight     := $window_start_height$,
-      disableFrameRateLimit := false,
-      electronInstall       := indigoplugin.ElectronInstall.Latest,
-      backgroundColor       := "black",
+      indigoOptions := gameOptions,
       libraryDependencies ++= Seq(
         "io.indigoengine" %%% "indigo-json-circe" % "$indigo_version$",
         "io.indigoengine" %%% "indigo"            % "$indigo_version$",
         "io.indigoengine" %%% "indigo-extras"     % "$indigo_version$"
-      )
+      ),
+      Compile / sourceGenerators += Def.task {
+        IndigoGenerators
+          .sbt((Compile / sourceManaged).value, "$organization$.generated")
+          .generateConfig("Config", gameOptions)
+          .toSourceFiles
+      }
     )
     .settings(
       code := {
