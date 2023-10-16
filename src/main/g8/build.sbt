@@ -45,10 +45,9 @@ lazy val mygame =
         "io.indigoengine" %%% "indigo-extras"     % "$indigo_version$"
       ),
       Compile / sourceGenerators += Def.task {
-        IndigoGenerators
-          .sbt((Compile / sourceManaged).value, "$organization$.generated")
+        IndigoGenerators("$organization$.generated")
           .generateConfig("Config", gameOptions)
-          .toSourceFiles
+          .toSourceFiles((Compile / sourceManaged).value)
       }
     )
     .settings(
