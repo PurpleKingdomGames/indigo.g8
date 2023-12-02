@@ -15,6 +15,7 @@ object $project_name$ extends ScalaJSModule with MillIndigo {
   val indigoOptions: IndigoOptions =
     IndigoOptions.defaults
       .withTitle("$game_title$")
+      .withWindowSize($window_start_width$, $window_start_height$)
       .withBackgroundColor("black")
       .withAssetDirectory(os.RelPath.rel / "assets")
       .excludeAssets {
