@@ -19,8 +19,8 @@ lazy val gameOptions: IndigoOptions =
       case _                                            => false
     }
 
-lazy val mygame =
-  (project in file("."))
+lazy val $project_name$ =
+  (project in file("$project_name$"))
     .enablePlugins(ScalaJSPlugin, SbtIndigo)
     .settings( // Normal SBT settings
       name         := "$project_name$",
@@ -48,6 +48,9 @@ lazy val mygame =
           .toSourceFiles((Compile / sourceManaged).value)
       }
     )
+
+lazy val indigo =
+  (project in file("."))
     .settings(
       code := {
         val command = Seq("code", ".")
@@ -72,11 +75,40 @@ lazy val mygame =
       commandColor     := scala.Console.CYAN,
       descriptionColor := scala.Console.WHITE
     )
+    .aggregate($project_name$)
 
-addCommandAlias("buildGame", ";compile;fastLinkJS;indigoBuild")
-addCommandAlias("buildGameFull", ";compile;fullLinkJS;indigoBuildFull")
-addCommandAlias("runGame", ";compile;fastLinkJS;indigoRun")
-addCommandAlias("runGameFull", ";compile;fullLinkJS;indigoRunFull")
+addCommandAlias(
+  "buildGame",
+  List(
+    "$project_name$/compile",
+    "$project_name$/fastLinkJS",
+    "$project_name$/indigoBuild"
+  ).mkString(";", ";", "")
+)
+addCommandAlias(
+  "buildGameFull",
+  List(
+    "$project_name$/compile",
+    "$project_name$/fullLinkJS",
+    "$project_name$/indigoBuildFull"
+  ).mkString(";", ";", "")
+)
+addCommandAlias(
+  "runGame",
+  List(
+    "$project_name$/compile",
+    "$project_name$/fastLinkJS",
+    "$project_name$/indigoRun"
+  ).mkString(";", ";", "")
+)
+addCommandAlias(
+  "runGameFull",
+  List(
+    "$project_name$/compile",
+    "$project_name$/fullLinkJS",
+    "$project_name$/indigoRunFull"
+  ).mkString(";", ";", "")
+)
 
 lazy val code =
   taskKey[Unit]("Launch VSCode in the current directory")
