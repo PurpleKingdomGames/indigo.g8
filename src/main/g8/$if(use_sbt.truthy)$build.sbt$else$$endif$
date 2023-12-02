@@ -45,6 +45,7 @@ lazy val $project_name$ =
       Compile / sourceGenerators += Def.task {
         IndigoGenerators("$organization$.generated")
           .generateConfig("Config", gameOptions)
+          .listAssets("Assets", gameOptions.assets)
           .toSourceFiles((Compile / sourceManaged).value)
       }
     )

@@ -1,0 +1,4 @@
+This is just a placeholder, it allows us to show how the listAssets generator
+works in a way that is compatible with Giter8.
+
+Normally you'd also add images and audio to this folder.

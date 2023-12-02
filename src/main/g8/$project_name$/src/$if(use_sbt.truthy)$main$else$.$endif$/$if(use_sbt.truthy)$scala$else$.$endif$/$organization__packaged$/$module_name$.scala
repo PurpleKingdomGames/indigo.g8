@@ -5,6 +5,7 @@ import indigo.scenes.*
 import scala.scalajs.js.annotation.JSExportTopLevel
 
 import $organization$.generated.Config
+import $organization$.generated.Assets
 
 @JSExportTopLevel("IndigoGame")
 object $module_name$ extends IndigoGame[Unit, Unit, Unit, Unit]:
@@ -21,6 +22,7 @@ object $module_name$ extends IndigoGame[Unit, Unit, Unit, Unit]:
   def boot(flags: Map[String, String]): Outcome[BootResult[Unit]] =
     Outcome(
       BootResult.noData(Config.config)
+        .withAssets(Assets.assets.assetSet)
     )
 
   def initialModel(startupData: Unit): Outcome[Unit] =
