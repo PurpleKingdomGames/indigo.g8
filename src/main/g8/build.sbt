@@ -8,8 +8,6 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 Test / scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) }
 
-ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "$scalafix_organize_imports_version$"
-
 lazy val gameOptions: IndigoOptions =
   IndigoOptions.defaults
     .withTitle("$game_title$")
