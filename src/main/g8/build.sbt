@@ -73,10 +73,10 @@ lazy val mygame =
       descriptionColor := scala.Console.WHITE
     )
 
-addCommandAlias("buildGame", ";compile;fastOptJS;indigoBuild")
-addCommandAlias("buildGameFull", ";compile;fullOptJS;indigoBuildFull")
-addCommandAlias("runGame", ";compile;fastOptJS;indigoRun")
-addCommandAlias("runGameFull", ";compile;fullOptJS;indigoRunFull")
+addCommandAlias("buildGame", ";compile;fastLinkJS;indigoBuild")
+addCommandAlias("buildGameFull", ";compile;fullLinkJS;indigoBuildFull")
+addCommandAlias("runGame", ";compile;fastLinkJS;indigoRun")
+addCommandAlias("runGameFull", ";compile;fullLinkJS;indigoRunFull")
 
 lazy val code =
   taskKey[Unit]("Launch VSCode in the current directory")
