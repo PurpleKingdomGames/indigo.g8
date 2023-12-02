@@ -1,18 +1,28 @@
-out/
-.bloop/
-.metals/
-.DS_Store
+# Mill
+out
+
+# sbt
 sbt
 .sbt-local
-.cache
-.history
-.lib
-dist
 target
 lib_managed
 src_managed
+
+# IDE
 .idea
 *.iml
 .vscode
 metals.sbt
 .bsp
+.bloop
+.metals
+
+# Direnv
+.envrc
+
+# Misc
+.DS_Store
+.cache
+.history
+.lib
+dist
