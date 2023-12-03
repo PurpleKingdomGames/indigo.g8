@@ -4,7 +4,9 @@
 
 The repo contains a version of the [millw](https://github.com/lefou/millw) launch script, so even if you have Mill installed globably, you're advised to use run Mill as `./mill <commands>`.
 
-Below is a list of useful commands, including some generally useful ones in case you're new to Mill. They assume your game was called "My Game" and the module name (in `build.sc`) is therefore `mygame`:
+Below is a list of useful commands, including some generally useful ones in case you're new to Mill.
+
+> Note that if you're using zsh, you may need to surround argument groups with single quotes, if you have special characters like hypens in your project name.
 
 ## Quick command aliases
 
@@ -12,16 +14,16 @@ These are defined in the `build.sc` file in this project, they are a combination
 
 ```bash
 # Run your game via Electron using fast compilation
-./mill mygame.runGame
+./mill $project_name$.runGame
 
 # Run your game via Electron using full compilation and compression
-./mill mygame.runGameFull
+./mill $project_name$.runGameFull
 
 # Build your game as a static website using fast compilation
-./mill mygame.buildGame
+./mill $project_name$.buildGame
 
 # Build your game as a static website using full compilation and compression
-./mill mygame.buildGameFull
+./mill $project_name$.buildGameFull
 ```
 
 ## Basic Mill commands
@@ -31,37 +33,37 @@ These are defined in the `build.sc` file in this project, they are a combination
 ./mill __.compile
 
 # Clean the game project
-./mill clean mygame
+./mill clean $project_name$
 
 # Compile the game
-./mill mygame.compile
+./mill $project_name$.compile
 
 # Run your game modules tests
-./mill mygame.test
+./mill $project_name$.test
 ```
 
 ## Scala.js commands
 
 ```bash
 # Scala.js fast compile (large file size)
-./mill mygame.fastLinkJS
+./mill $project_name$.fastLinkJS
 
 # Scala.js full compile and compress
-./mill mygame.fullLinkJS
+./mill $project_name$.fullLinkJS
 ```
 
 ## Indigo commands
 
 ```bash
 # Build your game as a static website using fast compilation, assumes you have already compiled to Scala.js using fastLinkJS
-./mill mygame.indigoBuild
+./mill $project_name$.indigoBuild
 
 # Build your game as a static website using full compilation and compression, assumes you have already compiled to Scala.js using fullLinkJS
-./mill mygame.indigoBuildFull
+./mill $project_name$.indigoBuildFull
 
 # Run your game via Electron using fast compilation, assumes you have already compiled to Scala.js using fastLinkJS
-./mill mygame.indigoRun
+./mill $project_name$.indigoRun
 
 # Run your game via Electron using full compilation and compression, assumes you have already compiled to Scala.js using fullLinkJS
-./mill mygame.indigoRunFull
+./mill $project_name$.indigoRunFull
 ```
