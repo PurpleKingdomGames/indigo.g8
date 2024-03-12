@@ -2,16 +2,22 @@
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for [Indigo](https://indigoengine.io/)!
 
-To install, use g8:
+To install, you can use the [g8](https://www.foundweekends.org/giter8/setup.html) command line tool:
 
 ```bash
 g8 PurpleKingdomGames/indigo.g8
 ```
 
-or sbt:
+or [sbt](https://www.scala-sbt.org/):
 
 ```bash
 sbt new PurpleKingdomGames/indigo.g8
+```
+
+or [Mill](https://mill-build.com/):
+
+```bash
+mill -i init PurpleKingdomGames/indigo.g8
 ```
 
 ## Supports Mill & sbt
@@ -22,7 +28,7 @@ If you want to use Mill, enter `n` when you see the `use_sbt` prompt.
 
 ## Nix Flake included (Optional)
 
-During set up, you'll be asked if you want to include a Nix Flake. This will add a basic nix Flake that provides sbt, Mill (with a JDK aligned to them both), and a node.js base static http-server (usage: `http-server -c-1`), that you can use as a starting point. It also includes a `.envrc` file that automatically loads and unloads the Flake via [direnv](https://direnv.net/) one you add it to Git.
+During set up, you'll be asked if you want to include a [Nix Flake](https://nixos.wiki/wiki/Flakes). This will add a basic nix Flake that provides sbt, Mill (with a JDK aligned to them both), and a node.js base static http-server (usage: `http-server -c-1`), that you can use as a starting point. It also includes a `.envrc` file that automatically loads and unloads the Flake via [direnv](https://direnv.net/) one you add it to Git.
 
 ---
 
