@@ -3,43 +3,43 @@ package $organization$
 import indigo.*
 import indigo.scenes.*
 
-object GameScene extends Scene[Unit, Unit, Unit]:
+object GameScene extends Scene[StartUpData, Model, ViewModel]:
 
-  type SceneModel     = Unit
-  type SceneViewModel = Unit
+  type SceneModel     = Model
+  type SceneViewModel = ViewModel
 
   val name: SceneName =
     SceneName("game")
 
-  val modelLens: Lens[Unit, Unit] =
+  val modelLens: Lens[Model, Model] =
     Lens.keepLatest
 
-  val viewModelLens: Lens[Unit, Unit] =
+  val viewModelLens: Lens[ViewModel, ViewModel] =
     Lens.keepLatest
 
   val eventFilters: EventFilters =
     EventFilters.Permissive
 
-  val subSystems: Set[SubSystem] =
+  val subSystems: Set[SubSystem[Model]] =
     Set()
 
   def updateModel(
-      context: SceneContext[Unit],
-      model: Unit
-  ): GlobalEvent => Outcome[Unit] =
+      context: SceneContext[StartUpData],
+      model: SceneModel
+  ): GlobalEvent => Outcome[SceneModel] =
     _ => Outcome(model)
 
   def updateViewModel(
-      context: SceneContext[Unit],
-      model: Unit,
-      viewModel: Unit
-  ): GlobalEvent => Outcome[Unit] =
+      context: SceneContext[StartUpData],
+      model: SceneModel,
+      viewModel: SceneViewModel
+  ): GlobalEvent => Outcome[SceneViewModel] =
     _ => Outcome(viewModel)
 
   def present(
-      context: SceneContext[Unit],
-      model: Unit,
-      viewModel: Unit
+      context: SceneContext[StartUpData],
+      model: SceneModel,
+      viewModel: SceneViewModel
   ): Outcome[SceneUpdateFragment] =
     Outcome(
       SceneUpdateFragment(

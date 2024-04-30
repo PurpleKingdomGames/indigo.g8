@@ -25,7 +25,7 @@ lazy val $project_name$ =
     .settings( // Normal SBT settings
       name         := "$project_name$",
       version      := "$project_version$",
-      scalaVersion := "3.3.1",
+      scalaVersion := "3.4.1",
       organization := "$organization$",
       libraryDependencies ++= Seq(
         "org.scalameta" %%% "munit" % "0.7.29" % Test
@@ -38,9 +38,9 @@ lazy val $project_name$ =
     .settings( // Indigo specific settings
       indigoOptions := gameOptions,
       libraryDependencies ++= Seq(
-        "io.indigoengine" %%% "indigo-json-circe" % "0.16.0",
-        "io.indigoengine" %%% "indigo"            % "0.16.0",
-        "io.indigoengine" %%% "indigo-extras"     % "0.16.0"
+        "io.indigoengine" %%% "indigo-json-circe" % "0.17.0",
+        "io.indigoengine" %%% "indigo"            % "0.17.0",
+        "io.indigoengine" %%% "indigo-extras"     % "0.17.0"
       ),
       Compile / sourceGenerators += Def.task {
         IndigoGenerators("$organization$.generated")
