@@ -50,6 +50,6 @@ object GameScene extends Scene[StartUpData, Model, ViewModel]:
           )
           .withRef(30, 30)
           .moveTo(100, 100)
-          .rotateTo(Radians.fromSeconds(context.running * 0.25))
+          .rotateTo(Radians.fromSeconds(context.frame.time.running * 0.25))
       )
     )

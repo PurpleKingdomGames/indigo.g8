@@ -25,10 +25,10 @@ lazy val $project_name$ =
     .settings( // Normal SBT settings
       name         := "$project_name$",
       version      := "$project_version$",
-      scalaVersion := "3.4.1",
+      scalaVersion := "3.6.2",
       organization := "$organization$",
       libraryDependencies ++= Seq(
-        "org.scalameta" %%% "munit" % "0.7.29" % Test
+        "org.scalameta" %%% "munit" % "1.0.4" % Test
       ),
       testFrameworks += new TestFramework("munit.Framework"),
       scalafixOnCompile  := true,
@@ -38,9 +38,9 @@ lazy val $project_name$ =
     .settings( // Indigo specific settings
       indigoOptions := gameOptions,
       libraryDependencies ++= Seq(
-        "io.indigoengine" %%% "indigo-json-circe" % "0.17.0",
-        "io.indigoengine" %%% "indigo"            % "0.17.0",
-        "io.indigoengine" %%% "indigo-extras"     % "0.17.0"
+        "io.indigoengine" %%% "indigo-json-circe" % "0.18.0",
+        "io.indigoengine" %%% "indigo"            % "0.18.0",
+        "io.indigoengine" %%% "indigo-extras"     % "0.18.0"
       ),
       Compile / sourceGenerators += Def.task {
         IndigoGenerators("$organization$.generated")
@@ -53,23 +53,12 @@ lazy val $project_name$ =
 lazy val indigo =
   (project in file("."))
     .settings(
-      code := {
-        val command = Seq("code", ".")
-        val run = sys.props("os.name").toLowerCase match {
-          case x if x contains "windows" => Seq("cmd", "/C") ++ command
-          case _                         => command
-        }
-        run.!
-      }
-    )
-    .settings(
       logo := "$game_title$ (v" + version.value.toString + ")",
       usefulTasks := Seq(
         UsefulTask("runGame", "Run the game").noAlias,
         UsefulTask("buildGame", "Build web version").noAlias,
         UsefulTask("runGameFull", "Run the fully optimised game").noAlias,
-        UsefulTask("buildGameFull", "Build the fully optimised web version").noAlias,
-        UsefulTask("code", "Launch VSCode").noAlias
+        UsefulTask("buildGameFull", "Build the fully optimised web version").noAlias
       ),
       logoColor        := scala.Console.MAGENTA,
       aliasColor       := scala.Console.YELLOW,
@@ -110,6 +99,3 @@ addCommandAlias(
     "$project_name$/indigoRunFull"
   ).mkString(";", ";", "")
 )
-
-lazy val code =
-  taskKey[Unit]("Launch VSCode in the current directory")

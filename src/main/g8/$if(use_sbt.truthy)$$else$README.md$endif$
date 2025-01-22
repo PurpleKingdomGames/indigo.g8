@@ -14,16 +14,16 @@ These are defined in the `build.sc` file in this project, they are a combination
 
 ```bash
 # Run your game via Electron using fast compilation
-./mill $project_name$.runGame
+./mill $project_name$.indigoRun
 
 # Run your game via Electron using full compilation and compression
-./mill $project_name$.runGameFull
+./mill $project_name$.indigoRunFull
 
 # Build your game as a static website using fast compilation
-./mill $project_name$.buildGame
+./mill $project_name$.indigoBuild
 
 # Build your game as a static website using full compilation and compression
-./mill $project_name$.buildGameFull
+./mill $project_name$.indigoBuildFull
 ```
 
 ## Basic Mill commands
@@ -55,15 +55,15 @@ These are defined in the `build.sc` file in this project, they are a combination
 ## Indigo commands
 
 ```bash
-# Build your game as a static website using fast compilation, assumes you have already compiled to Scala.js using fastLinkJS
+# Build your game as a static website using fast compilation
 ./mill $project_name$.indigoBuild
 
-# Build your game as a static website using full compilation and compression, assumes you have already compiled to Scala.js using fullLinkJS
+# Build your game as a static website using full compilation and compression
 ./mill $project_name$.indigoBuildFull
 
-# Run your game via Electron using fast compilation, assumes you have already compiled to Scala.js using fastLinkJS
+# Run your game via Electron using fast compilation
 ./mill $project_name$.indigoRun
 
-# Run your game via Electron using full compilation and compression, assumes you have already compiled to Scala.js using fullLinkJS
+# Run your game via Electron using full compilation and compression
 ./mill $project_name$.indigoRunFull
 ```

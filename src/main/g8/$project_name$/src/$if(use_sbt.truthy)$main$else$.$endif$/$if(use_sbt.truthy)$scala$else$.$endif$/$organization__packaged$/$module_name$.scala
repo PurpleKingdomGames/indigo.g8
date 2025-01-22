@@ -39,20 +39,20 @@ object $module_name$ extends IndigoGame[BootData, StartUpData, Model, ViewModel]
     Outcome(Startup.Success(StartUpData()))
 
   def updateModel(
-      context: FrameContext[StartUpData],
+      context: Context[StartUpData],
       model: Model
   ): GlobalEvent => Outcome[Model] =
     _ => Outcome(model)
 
   def updateViewModel(
-      context: FrameContext[StartUpData],
+      context: Context[StartUpData],
       model: Model,
       viewModel: ViewModel
   ): GlobalEvent => Outcome[ViewModel] =
     _ => Outcome(viewModel)
 
   def present(
-      context: FrameContext[StartUpData],
+      context: Context[StartUpData],
       model: Model,
       viewModel: ViewModel
   ): Outcome[SceneUpdateFragment] =
