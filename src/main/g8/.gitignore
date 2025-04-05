@@ -26,3 +26,4 @@ metals.sbt
 .history
 .lib
 dist
+node_modules
