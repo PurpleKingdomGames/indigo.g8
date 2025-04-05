@@ -19,6 +19,7 @@ metals.sbt
 
 # Direnv
 .envrc
+.direnv
 
 # Misc
 .DS_Store
