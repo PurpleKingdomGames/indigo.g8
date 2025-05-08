@@ -4,13 +4,13 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
 
-import \$ivy.`io.indigoengine::mill-indigo:0.20.0`, indigoplugin._
+import \$ivy.`io.indigoengine::mill-indigo:0.21.0`, indigoplugin._
 
 object $project_name$ extends ScalaJSModule with MillIndigo {
-  def scalaVersion   = "3.6.3"
-  def scalaJSVersion = "1.18.2"
+  def scalaVersion   = "3.6.4"
+  def scalaJSVersion = "1.19.0"
 
-  val indigoVersion = "0.20.0"
+  val indigoVersion = "0.21.0"
 
   val indigoOptions: IndigoOptions =
     IndigoOptions.defaults
@@ -37,7 +37,7 @@ object $project_name$ extends ScalaJSModule with MillIndigo {
 
   object test extends ScalaJSTests {
     def ivyDeps = Agg(
-      ivy"org.scalameta::munit::1.1.0"
+      ivy"org.scalameta::munit::1.1.1"
     )
 
     def testFramework = "munit.Framework"
