@@ -4,13 +4,13 @@ import mill.scalalib._
 import mill.scalajslib._
 import mill.scalajslib.api._
 
-import \$ivy.`io.indigoengine::mill-indigo:0.21.0`, indigoplugin._
+import \$ivy.`io.indigoengine::mill-indigo:0.21.1`, indigoplugin._
 
 object $project_name$ extends ScalaJSModule with MillIndigo {
   def scalaVersion   = "3.6.4"
   def scalaJSVersion = "1.19.0"
 
-  val indigoVersion = "0.21.0"
+  val indigoVersion = "0.21.1"
 
   val indigoOptions: IndigoOptions =
     IndigoOptions.defaults
