@@ -2,11 +2,27 @@
 
 ## Getting started with Mill
 
-The repo contains a version of the [millw](https://github.com/lefou/millw) launch script, so even if you have Mill installed globably, you're advised to use run Mill as `./mill <commands>`.
+The repo contains a version of the Mill launch script (`mill` for Mac / Linux or `mill.bat` on Windows), so even if you have Mill installed globally, you're advised to use run Mill as `./mill <commands>` / `.\mill.bat <commands>`.
 
 Below is a list of useful commands, including some generally useful ones in case you're new to Mill.
 
 > Note that if you're using zsh, you may need to surround argument groups with single quotes, if you have special characters like hypens in your project name.
+
+### Indigo does NOT support Mill 1.x.x (yet)
+
+We're working on Mill 1.x.x support, but in the meantime...
+
+If you follow the [official install instructions](https://mill-build.org/mill/cli/installation-ide.html), please substitute `1.x.x` for `0.12.6` for example:
+
+```
+curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.0.3/mill-dist-1.0.3-mill.sh -o mill
+```
+
+Needs to change to become:
+
+```
+curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/0.12.6/mill -o mill
+```
 
 ## Quick command aliases
 

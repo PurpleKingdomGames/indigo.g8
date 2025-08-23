@@ -13,8 +13,8 @@ object $module_name$ extends IndigoGame[BootData, StartUpData, Model, ViewModel]
   def initialScene(bootData: BootData): Option[SceneName] =
     None
 
-  def scenes(bootData: BootData): NonEmptyList[Scene[StartUpData, Model, ViewModel]] =
-    NonEmptyList(GameScene)
+  def scenes(bootData: BootData): NonEmptyBatch[Scene[StartUpData, Model, ViewModel]] =
+    NonEmptyBatch(GameScene)
 
   val eventFilters: EventFilters =
     EventFilters.Permissive
